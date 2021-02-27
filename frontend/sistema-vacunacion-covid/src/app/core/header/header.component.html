@@ -1,0 +1,51 @@
+<nav
+  class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top border-bottom"
+>
+  <a class="navbar-brand" href="#">
+    <img
+      src="assets/img/LogoCoomevaVerde.png"
+      width="200"
+      alt=""
+      class="d-inline-block align-middle mr-2"
+    />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <div class="topbar-divider d-none d-sm-block"></div>
+      <li class="nav-item no-arrow mr-3">
+        <a
+          class="nav-link py-md-2"
+          [routerLink]="'/pacientes'"
+          [routerLinkActive]="'active'"
+        >
+          <span class="mr-2 d-none d-lg-inline text-gray-600"
+            >Consultar pacientes</span
+          >
+        </a>
+      </li>
+      <li class="nav-item no-arrow mr-3">
+        <a
+          class="nav-link py-md-2"
+          [routerLink]="'/pacientes/registrar'"
+          [routerLinkActive]="'active'"
+        >
+          <span class="mr-2 d-none d-lg-inline text-gray-600"
+            >Registrar paciente</span
+          >
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
