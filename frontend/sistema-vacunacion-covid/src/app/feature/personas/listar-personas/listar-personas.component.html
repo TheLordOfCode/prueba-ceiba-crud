@@ -1,1 +1,37 @@
-<p>listar-personas works!</p>
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Personas</h2>
+            <a [routerLink]="'/personas/registrar'" placement="top" ngbTooltip="Agregar" class="btn btn-primary circle"
+              ><i class="fa fa-plus fa-lg"></i
+            ></a>
+          </div>
+        </div>
+        <div class="x_content">
+          <div class="table-responsive">
+            <table class="table table-striped jambo_table">
+              <thead>
+                <tr class="headings">
+                  <th scope="col" class="column-title">Cédula</th>
+                  <th scope="col" class="column-title">Nombre</th>
+                  <th scope="col" class="column-title">Apellido</th>
+                  <th scope="col" class="column-title">Fecha de nacimiento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="even pointer" *ngFor="let persona of personas; let i = index;">
+                  <td>{{persona.cedula}}</td>
+                  <td>{{persona.nombre}}</td>
+                  <td>{{persona.apellido}}</td>
+                  <td>{{persona.fechaNacimiento}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="ml-1" *ngIf="personas.length === 0">No se encontraron registros</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

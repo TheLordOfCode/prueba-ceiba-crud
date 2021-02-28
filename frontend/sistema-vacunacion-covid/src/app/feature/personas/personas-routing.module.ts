@@ -11,6 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ListarPersonasComponent },
       { path: 'registrar', component: RegistrarPersonaComponent },
+      { path: 'actualizar/:id', component: RegistrarPersonaComponent },
     ],
   },
   { path: '', pathMatch: 'full', redirectTo: '/personas' },
