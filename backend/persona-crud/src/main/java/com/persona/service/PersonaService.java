@@ -52,8 +52,8 @@ public class PersonaService {
 
     public boolean esMayorDeEdad(LocalDate fechaNacimiento) {
         LocalDate fechaDeHoy = LocalDate.now();
-        long diferenciaDeAnios = ChronoUnit.YEARS.between(fechaDeHoy, fechaNacimiento);
-        return diferenciaDeAnios > DIEZ_OCHO_ANIOS;
+        long diferenciaDeAnios = ChronoUnit.YEARS.between(fechaNacimiento, fechaDeHoy);
+        return  DIEZ_OCHO_ANIOS > diferenciaDeAnios;
     }
 
 }

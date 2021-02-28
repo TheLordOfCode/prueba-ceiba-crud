@@ -4,6 +4,8 @@ import com.persona.dto.Mensaje;
 import com.persona.dto.PersonaDto;
 import com.persona.entity.Persona;
 import com.persona.service.PersonaService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/personas")
+@Api(tags = {"Controlador Personas"})
 @CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
 
@@ -21,12 +24,14 @@ public class PersonaController {
     PersonaService personaService;
 
     @GetMapping()
+    @ApiOperation("Cargar todas las personas")
     public ResponseEntity<List<Persona>> list(){
         List<Persona> list = personaService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @ApiOperation("Cargar persona por id")
     public ResponseEntity<Persona> getById(@PathVariable("id") int id){
         if(!personaService.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -35,6 +40,7 @@ public class PersonaController {
     }
 
     @PostMapping()
+    @ApiOperation("Crear una persona")
     public ResponseEntity<?> create(@RequestBody PersonaDto personaDto){
         if(StringUtils.isBlank(personaDto.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -48,6 +54,7 @@ public class PersonaController {
     }
 
     @PutMapping("/{id}")
+    @ApiOperation("Actualizar persona por id")
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody PersonaDto personaDto){
         if(StringUtils.isBlank(personaDto.getNombre())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -68,6 +75,7 @@ public class PersonaController {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation("Eliminar persona por id")
     public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!personaService.existsById(id))
             return new ResponseEntity(new Mensaje("No existe la persona para eliminar"), HttpStatus.NOT_FOUND);
