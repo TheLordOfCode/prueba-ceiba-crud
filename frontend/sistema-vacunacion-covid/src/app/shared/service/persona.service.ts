@@ -31,12 +31,12 @@ export class PersonaService {
     return this.httpClient.get<Persona>(`${this.apiPersonas}/${id}`);
   }
 
-  guardarPersona(persona: Persona): Observable<void>{
-    return this.httpClient.post<void>(`${this.apiPersonas}`, persona);
+  guardarPersona(persona: Persona): Observable<string>{
+    return this.httpClient.post<string>(`${this.apiPersonas}`, persona);
   }
 
-  actualizarPersona(id: string, persona: Persona): Observable<void>{
-    return this.httpClient.put<void>(`${this.apiPersonas}/${id}`, persona);
+  actualizarPersona(id: string, persona: Persona): Observable<string>{
+    return this.httpClient.put<string>(`${this.apiPersonas}/${id}`, persona);
   }
 
   eliminarPersonaPorId(id: string): Observable<Persona[]>{
