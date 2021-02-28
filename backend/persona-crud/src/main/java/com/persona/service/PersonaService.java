@@ -27,10 +27,6 @@ public class PersonaService {
         return personaRepository.findById(id);
     }
 
-    public Optional<Persona> getByNombre(String nombre){
-        return personaRepository.findByNombre(nombre);
-    }
-
     public void  save(Persona persona){
         personaRepository.save(persona);
     }
@@ -43,9 +39,6 @@ public class PersonaService {
         return personaRepository.existsById(id);
     }
 
-    public boolean existsByNombre(String nombre){
-        return personaRepository.existsByNombre(nombre);
-    }
     public boolean existsByCedula(long cedula){
         return personaRepository.existsByCedula(cedula);
     }

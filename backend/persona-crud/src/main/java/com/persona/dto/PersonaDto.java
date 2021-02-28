@@ -1,6 +1,5 @@
 package com.persona.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
